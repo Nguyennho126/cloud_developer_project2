@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { filterImageFromURL, deleteLocalFiles } from './util/util';
-import fs from "fs";
+import {Application, Request, Response, NextFunction, Errback} from "express";
+
 (async () => {
 
   // Init the Express application
@@ -31,7 +32,7 @@ import fs from "fs";
   });
 
   //test http://localhost:8082/filteredimage/?image_url=https://picsum.photos/200
-  app.get("/filteredimage", async (req, res) => {
+  app.get("/filteredimage", async (req:Request, res:Response) => {
   //    1. validate the image_url query
   //    2. call filterImageFromURL(image_url) to filter the image
   //    3. send the resulting file in the response
@@ -46,9 +47,8 @@ import fs from "fs";
     }
     try {
       console.log(`url image ${image_url}`);
-      let filteredpath = await filterImageFromURL(image_url);
-
-      res.sendFile(filteredpath, (error) => {
+      let filteredpath: string = await filterImageFromURL(image_url) as string;
+      res.sendFile(filteredpath, async (error) => {
         if (error) {
           return res.status(201).send({ message: "not found image" });
         }

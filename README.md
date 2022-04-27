@@ -1,4 +1,20 @@
 # Udagram Image Filtering Microservice (project 2)
-- url: http://image-filter-service-dev.us-east-1.elasticbeanstalk.com/
+## requrement
+- ts-node: version 8.3.0
+- typescript: version 3.5.3
+
+## run script in local
+- npm -i
+- npm run dev
+- Then server running http://localhost:8082
+
+
+## deploy elasticbeanstalk
+- eb init
+- npm run build
+- eb create
+
+## elasticbeanstalk endpoint
+- http://image-filter-service-dev.us-east-1.elasticbeanstalk.com/
 - you can test the url: http://image-filter-service-dev.us-east-1.elasticbeanstalk.com/filteredimage/?image_url=https://picsum.photos/200
 
