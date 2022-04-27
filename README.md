@@ -4,7 +4,7 @@
 - typescript: version 3.5.3
 
 ## run script in local
-- npm -i
+- npm i
 - npm run dev
 - Then server running http://localhost:8082
 
