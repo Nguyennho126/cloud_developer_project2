@@ -14,18 +14,18 @@ import {Application, Request, Response, NextFunction, Errback} from "express";
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
-  app.get("/", async (req, res) => {
+  app.get("/", async (req:Request, res:Response) => {
     res.send("try GET /filteredimage?image_url={{}}")
   });
 
   // test get  params id http://localhost:8082/testparams/?id=nhon1
-  app.get("/testparams", async (req, res) => {
+  app.get("/testparams", async (req:Request, res:Response) => {
     var id = req.query.id;
     res.send(id)
   });
 
   //test load image function
-  app.get("/testfilteredimage", async (req, res) => {
+  app.get("/testfilteredimage", async (req:Request, res:Response) => {
     let file_path = await filterImageFromURL('https://picsum.photos/200');
     console.log(`test save image ${file_path}`)
     res.send(file_path);
