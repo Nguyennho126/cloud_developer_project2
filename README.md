@@ -1,5 +1,5 @@
 # Udagram Image Filtering Microservice (project 2)
-## requrement
+## requirement
 - ts-node: version 8.3.0
 - typescript: version 3.5.3
 
